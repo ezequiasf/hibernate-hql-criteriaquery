@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+   
+    <session-factory>
+        <!-- Database connection settings-->    
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1434;databaseName=hibernatedemo;user=sa;password=think;</property>
+      
+        <!--JDBC Connection pool -->
+        <property name="hibernate.connection.pool_size">1</property>
+        
+         <!--Show SQL in console -->
+        <property name="show_sql">true</property>
+        
+         <!--Dialect used -->
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+
+        <!--Every session runs in a particular thread (Thread safe) -->
+        <property name="current_session_context_class">thread</property>
+             
+        <!--Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        <!--Entity classes -->
+        <mapping class="model.Aluno" />
+        <mapping class="model.Curso"/>
+    </session-factory>
+
+</hibernate-configuration>
